@@ -7,7 +7,8 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'main',
-    component: () => import(/* webpackChunkName: "about" */ '../views/main.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/main.vue'),
+    meta: { title: 'Porfolio' },
   },
 ]
 
