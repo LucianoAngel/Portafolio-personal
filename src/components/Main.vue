@@ -257,13 +257,16 @@
                 <p>"Soñar es tán facil, es gratis"</p>
               </b-col>
             </b-row>
-            <b-row class="mt-5">
+            <b-row class="mt-3">
               <b-col>
                 <b-badge pill class="text-center" variant="light">
-                  <p class="font-weight-bold">
+                  <p class="font-weight-bold mt-3 ml-2 mr-2">
                     Diseño: Angel Raga. Derechos Reservados
                   </p>
                 </b-badge>
+                <p class="font-weight-bold mt-3">
+                  Version: 1.10
+                </p>
               </b-col>
             </b-row>
           </b-card-text>
@@ -285,6 +288,50 @@ export default {
     return {
       proyectos: [
         {
+          nombre: "DANHYLUC",
+          descripcion:
+            "Esta aplicación les permite a los usuarios almacenar información referente a su negocio, clientes, servidores del sistema, categorías de los servicios, servicios disponibles con sus montos además de la muestra de las transacciones realizadas con sus respectivas especificaciones, siendo adaptable a cualquier negocio que preste un servicio",
+          tecnologias: "VUE, BOOTSTRAP, EXPRESS, MONGO",
+          link: require("../assets/proyectos/danhyluc.png"),
+          front: "https://github.com/LucianoAngel/danhyluc",
+          back: "https://github.com/LucianoAngel/danhyluc-back",
+        },
+        {
+          nombre: "Administrador de una ciudad",
+          descripcion:
+            'CRUD encargado de administrar las edificaciones de una ciudad, en ella puedes agregar a tu ciudad todo tipo de edificaciones con sus especificaciones correspondientes, además cuenta con un diseño reesponsive y una base de datos NOSQL',
+          tecnologias: "VUE, BOOTSTRAP, EXPRESS, MONGO",
+          link: require("../assets/proyectos/gestionCiudad.jpg"),
+          front: "https://github.com/LucianoAngel/City-management",
+          back: "https://github.com/LucianoAngel/City-management-back",
+        },
+        {
+          nombre: "E-Shop",
+          descripcion:
+            'Proyecto personal, cuenta con la funcionalidad de administrar: compras, ventas, ingresos, personal y clientes de un comercio, es una "SPA", cuenta con manejo de sesiones y una landing page',
+          tecnologias: "VUE, BOOTSTRAP, EXPRESS, MONGO",
+          link: require("../assets/proyectos/shop1.jpg"),
+          front: "https://github.com/LucianoAngel/e-shop",
+          back: "https://github.com/LucianoAngel/e-shop",
+        },
+        {
+          nombre: "Portafolio Personal",
+          descripcion:
+            'Es la página web en la que estás navegando actualmente, es una "SPA" con datos estáticos, es completamente "responsive", muestra un portafolio personal, agradable a la vista, con redireccionamientos a repósitorios de GitHub',
+          tecnologias: "VUE, BOOTSTRAP",
+          link: require("../assets/proyectos/portafolio.png"),
+          redirect: "https://github.com/LucianoAngel/Portafolio-personal",
+        },
+        {
+          nombre: "DAYLUC",
+          descripcion:
+            'Es una "NUBE" de canciones con la funcionalidad de ser un reproductor de música (dinámico), cuenta con un manejo de usuarios, sesiones,  registro, inicio y cierre de sesión, cada usuario puede subir sus canciones y escuchar las de los demás, tambien puede editar los nombres de la cancion y eliminarlas solo si el usuario las ha subido',
+          tecnologias: "VUE, BOOTSTRAP, MONGO, NODE, EXPRESS",
+          link: require("../assets/proyectos/dayluc.png"),
+          front: "https://github.com/LucianoAngel/dayluc/tree/main/front-end",
+          back: "https://github.com/LucianoAngel/dayluc/tree/main/back-end",
+        },
+        {
           nombre: "Reproductor de Música",
           descripcion:
             "Es un proyecto que resuelve la necesidad de escuchar musica, la web cuenta con la administracion de: las listas de reproduccion, mostrar tu historial de canciones escuchadas, y ser agradable a la vista",
@@ -301,55 +348,12 @@ export default {
           redirect: "https://github.com/LucianoAngel/jarvis",
         },
         {
-          nombre: "DAYLUC",
-          descripcion:
-            'Es una "NUBE" de canciones con la funcionalidad de ser un reproductor de música (dinámico), cuenta con un manejo de usuarios, sesiones,  registro, inicio y cierre de sesión, cada usuario puede subir sus canciones y escuchar las de los demás, tambien puede editar los nombres de la cancion y eliminarlas solo si el usuario las ha subido',
-          tecnologias: "VUE, BOOTSTRAP, MONGO, NODE, EXPRESS",
-          link: require("../assets/proyectos/dayluc.png"),
-          redirect: "https://github.com/LucianoAngel/dayluc",
-        },
-        {
-          nombre: "DANHYLUC",
-          descripcion:
-            "Esta aplicación les permite a los usuarios almacenar información referente a su negocio, clientes, servidores del sistema, categorías de los servicios, servicios disponibles con sus montos además de la muestra de las transacciones realizadas con sus respectivas especificaciones, siendo adaptable a cualquier negocio que preste un servicio",
-          tecnologias: "VUE, BOOTSTRAP, EXPRESS, MONGO",
-          link: require("../assets/proyectos/danhyluc.png"),
-          front: "https://github.com/LucianoAngel/e-shop",
-          back: "https://github.com/LucianoAngel/e-shop",
-        },
-        {
-          nombre: "Portafolio Personal",
-          descripcion:
-            'Es la página web en la que estás navegando actualmente, es una "SPA" con datos estáticos, es completamente "responsive", muestra un portafolio personal, agradable a la vista, con redireccionamientos a repósitorios de GitHub',
-          tecnologias: "VUE, BOOTSTRAP",
-          link: require("../assets/proyectos/portafolio.png"),
-          redirect: "https://github.com/LucianoAngel/Portafolio-personal",
-        },
-        {
-          nombre: "E-Shop",
-          descripcion:
-            'Proyecto personal, cuenta con la funcionalidad de administrar: compras, ventas, ingresos, personal y clientes de un comercio, es una "SPA", cuenta con manejo de sesiones y una landing page',
-          tecnologias: "VUE, BOOTSTRAP, EXPRESS, MONGO",
-          link: require("../assets/proyectos/shop1.jpg"),
-          front: "https://github.com/LucianoAngel/e-shop",
-          back: "https://github.com/LucianoAngel/e-shop",
-        },
-        {
           nombre: "Clon NodeJS",
           descripcion:
             "Proyecto basado en la clonación de una pagina web (página web de NodeJs)",
           tecnologias: "HTML, CSS",
           link: require("../assets/proyectos/node.png"),
           redirect: "https://github.com/LucianoAngel/node-js-clon",
-        },
-        {
-          nombre: "Administrador de una ciudad",
-          descripcion:
-            'CRUD encargado de administrar las edificaciones de una ciudad, en ella puedes agregar a tu ciudad todo tipo de edificaciones con sus especificaciones correspondientes, además cuenta con un diseño reesponsive y una base de datos NOSQL',
-          tecnologias: "VUE, BOOTSTRAP, EXPRESS, MONGO",
-          link: require("../assets/proyectos/gestionCiudad.jpg"),
-          front: "https://github.com/LucianoAngel/e-shop",
-          back: "https://github.com/LucianoAngel/e-shop",
         },
       ],
     };

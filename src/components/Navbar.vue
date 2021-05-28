@@ -7,7 +7,7 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item exact>
+          <b-nav-item href="mailto:ragadurana@uvm.edu.ve" target="_blank" exact>
 						<b-img v-bind="{ width: 35, height: 35, class:'mr-1' }" :src="require('../assets/gmail2.png')" alt="Telegram"></b-img>
             ragadurana@uvm.edu.ve</b-nav-item
           >
