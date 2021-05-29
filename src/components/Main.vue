@@ -3,7 +3,7 @@
     <header class="degradado mh-50">
       <b-container fluid>
         <b-row>
-          <b-col lg="6" md="10" sm="12">
+          <b-col lg="6" md="12" sm="12">
             <div class="md-5 mt-3 white-text text-center">
               <h3
                 class="font-weight-bold white-text mb-0 pt-md-5 pt-5" style="font-size:7vw;"
@@ -135,9 +135,10 @@
         <b-card>
           <b-container fluid="sm">
             <b-row class="mt-3 mb-3">
-              <b-col col lg="4"></b-col>
-              <b-col col lg="4" class="text-center">
+              <b-col v-if="windowWidth > 500" col lg="4"></b-col>
+              <b-col v-if="windowWidth > 500" col lg="4" class="text-center">
                 <b-img
+                  v-if="windowWidth > 500"
                   thumpbail
                   fluid
                   right
@@ -145,8 +146,8 @@
                   class="mt-5"
                 ></b-img>
               </b-col>
-              <b-col col lg="2">
-                <h4 class="font-weight-bold">2019</h4>
+              <b-col col lg="2" sm="12">
+                <h4 class="font-weight-bold m-2">2019</h4>
                 En el 2019 empezó mi redescubrimiento de la programación, luego
                 de aprender un montón de conceptos básicos, llego la hora de
                 ponerlos en práctica, el primer lenguaje de programación que
@@ -156,7 +157,7 @@
                 creación de "JARVIS"
               </b-col>
               <b-col col lg="2">
-                <h4 class="font-weight-bold">2020</h4>
+                <h4 class="font-weight-bold m-2">2020</h4>
                 Con lo complejo que es el mundo del desarrollo web, al conocer
                 las bases de la programación, estuve preparado para más, y con
                 ello adquirí experiencia en los proyectos de "first in first
@@ -166,7 +167,7 @@
             </b-row>
             <b-row>
               <b-col col lg="4">
-                <h4 class="font-weight-bold">2020</h4>
+                <h4 class="font-weight-bold m-2">2020</h4>
                 JEST: JavaScript Test; si tuviera que describir lo que fue
                 aprender el Test Unitario en una sola palabra sería: "WOW",
                 simplemente increible, al conocer el mundo de los test, se abre
@@ -174,7 +175,7 @@
                 ella trabajé de freelance realizando más de 200 test de
                 aplicaciones Front-End
               </b-col>
-              <b-col col lg="4">
+              <b-col col lg="4" v-if="windowWidth > 500">
                 <b-avatar
                   :src="require('../assets/jest.png')"
                   variant="light"
@@ -183,11 +184,11 @@
                   class="mt-5"
                 ></b-avatar>
               </b-col>
-              <b-col col lg="4"></b-col>
+              <b-col v-if="windowWidth > 500" col lg="4"></b-col>
             </b-row>
             <b-row>
-              <b-col></b-col>
-              <b-col
+              <b-col v-if="windowWidth > 500"></b-col>
+              <b-col v-if="windowWidth > 500"
                 ><b-avatar
                   :src="require('../assets/logo.png')"
                   variant="light"
@@ -197,7 +198,7 @@
                 ></b-avatar
               ></b-col>
               <b-col>
-                <h4 class="font-weight-bold">2020</h4>
+                <h4 class="font-weight-bold m-2">2020</h4>
                 Con la Popularidad de los Frameworks en el desarrollo web, mi
                 aprendizaje de VUE fue leyendolo, para la realización de Test
                 Unitarios en Componentes de VUE, me ví en la necesidad de
@@ -210,7 +211,7 @@
             </b-row>
             <b-row>
               <b-col>
-                <h4 class="font-weight-bold">2020</h4>
+                <h4 class="font-weight-bold m-2">2020</h4>
                 Mi experiencia en el back-end empezó con la necesidad de
                 administrar mis proyectos personales sin depender de datos
                 estáticos, luego de aprender a realizar APIs, vendí mi trabajo
@@ -219,7 +220,7 @@
                 proyectos personales como lo són el reproductor "DAYLUC" y mi
                 proyecto de administracion de un comercio.
               </b-col>
-              <b-col>
+              <b-col v-if="windowWidth > 500">
                 <b-avatar-group size="8rem" class="mt-5">
                   <b-avatar
                     :src="require('../assets/nodejs.png')"
@@ -235,11 +236,12 @@
                   ></b-avatar>
                 </b-avatar-group>
               </b-col>
-              <b-col></b-col>
+              <b-col v-if="windowWidth > 500"></b-col>
             </b-row>
             <b-row>
-              <b-col></b-col>
+              <b-col v-if="windowWidth > 500"></b-col>
               <b-col
+                v-if="windowWidth > 500"
                 ><b-avatar
                   :src="require('../assets/typescript.png')"
                   variant="light"
@@ -249,7 +251,7 @@
                 ></b-avatar
               ></b-col>
               <b-col>
-                <h4 class="font-weight-bold">2021</h4>
+                <h4 class="font-weight-bold m-2">2021</h4>
                 Este año he realizado proyectos universitarios, personales y empresariales. Aprovechando que VUE estrenó
                 su versión 3.0, en ella se anunció la compatibilidad total con typescript, ello animó mi curiosidad por
                 aprender el lenguaje, tras ser fuertemente tipado y dotado de funcionalidad que verifica el código en
@@ -322,6 +324,8 @@ export default {
   name: "main",
   data() {
     return {
+      windowHeight: window.innerHeight,
+      windowWidth: window.innerWidth,
       proyectos: [
         {
           nombre: "DANHYLUC",
@@ -402,8 +406,20 @@ export default {
       ],
     };
   },
-  methods: {},
-  mounted: function() {},
+  mounted(){
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    })
+  },
+  beforeDestroy() {
+      window.removeEventListener('resize', this.onResize);
+  },
+  methods: {
+    onResize() {
+        this.windowHeight = window.innerHeight
+        this.windowWidth = window.innerWidth
+    }
+  },
 };
 </script>
 
