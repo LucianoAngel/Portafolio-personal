@@ -146,7 +146,15 @@
                   class="mt-5"
                 ></b-img>
               </b-col>
-              <b-col col lg="2" sm="12">
+              <b-col col lg="2">
+                <b-img
+                  v-if="windowWidth < 350"
+                  thumpbail
+                  fluid
+                  right
+                  :src="require('../assets/html.png')"
+                  class="mt-5"
+                ></b-img>
                 <h4 class="font-weight-bold m-2">2019</h4>
                 En el 2019 empezó mi redescubrimiento de la programación, luego
                 de aprender un montón de conceptos básicos, llego la hora de
@@ -167,6 +175,14 @@
             </b-row>
             <b-row>
               <b-col col lg="4">
+                <b-avatar
+                  v-if="windowWidth < 500"
+                  :src="require('../assets/jest.png')"
+                  variant="light"
+                  size="8rem"
+                  rounded=""
+                  class="mt-5"
+                ></b-avatar>
                 <h4 class="font-weight-bold m-2">2020</h4>
                 JEST: JavaScript Test; si tuviera que describir lo que fue
                 aprender el Test Unitario en una sola palabra sería: "WOW",
@@ -198,6 +214,14 @@
                 ></b-avatar
               ></b-col>
               <b-col>
+                <b-avatar
+                  v-if="windowWidth < 500"
+                  :src="require('../assets/logo.png')"
+                  variant="light"
+                  size="8rem"
+                  rounded=""
+                  class="mt-5 t-5"
+                ></b-avatar>
                 <h4 class="font-weight-bold m-2">2020</h4>
                 Con la Popularidad de los Frameworks en el desarrollo web, mi
                 aprendizaje de VUE fue leyendolo, para la realización de Test
@@ -211,6 +235,20 @@
             </b-row>
             <b-row>
               <b-col>
+                <b-avatar-group v-if="windowWidth < 500" size="8rem" class="mt-5">
+                  <b-avatar
+                    :src="require('../assets/nodejs.png')"
+                    variant="light"
+                  ></b-avatar>
+                  <b-avatar
+                    :src="require('../assets/mongo.png')"
+                    variant="light"
+                  ></b-avatar>
+                  <b-avatar
+                    :src="require('../assets/express.png')"
+                    variant="light"
+                  ></b-avatar>
+                </b-avatar-group>
                 <h4 class="font-weight-bold m-2">2020</h4>
                 Mi experiencia en el back-end empezó con la necesidad de
                 administrar mis proyectos personales sin depender de datos
@@ -251,6 +289,14 @@
                 ></b-avatar
               ></b-col>
               <b-col>
+                <b-avatar
+                  v-if="windowWidth < 500"
+                  :src="require('../assets/typescript.png')"
+                  variant="light"
+                  size="8rem"
+                  rounded=""
+                  class="mt-5 t-5"
+                ></b-avatar>
                 <h4 class="font-weight-bold m-2">2021</h4>
                 Este año he realizado proyectos universitarios, personales y empresariales. Aprovechando que VUE estrenó
                 su versión 3.0, en ella se anunció la compatibilidad total con typescript, ello animó mi curiosidad por
