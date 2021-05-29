@@ -3,10 +3,10 @@
     <header class="degradado mh-50">
       <b-container fluid>
         <b-row>
-          <b-col>
-            <div class="display-2 md-5  mt-3 white-text text-center">
+          <b-col lg="6" md="10" sm="12">
+            <div class="md-5 mt-3 white-text text-center">
               <h3
-                class="display-3 font-weight-bold white-text mb-0 pt-md-5 pt-5"
+                class="font-weight-bold white-text mb-0 pt-md-5 pt-5" style="font-size:7vw;"
               >
                 ¿Necesítas Un Desarrollador?
               </h3>
@@ -32,7 +32,7 @@
                 <b-avatar
                   icon="hdd-stack-fill"
                   size="3rem"
-                  class="mt-3 mb-3"
+                  class="m-3"
                   variant="dark"
                 ></b-avatar>
                 <b-badge variant="dark">Back-End</b-badge>
@@ -41,7 +41,7 @@
                 <b-avatar
                   icon="journal-check"
                   size="3rem"
-                  class="mt-3 mb-3"
+                  class="m-3"
                   variant="dark"
                 ></b-avatar>
                 <b-badge variant="dark">Unit-Testing</b-badge>
@@ -66,7 +66,7 @@
       >Proyectos Realizados <b-avatar icon="terminal" variant="info"></b-avatar
     ></b-button>
     <main>
-      <div class="container">
+      <b-container fluid>
         <b-card>
           <b-card-group>
             <div
@@ -85,7 +85,16 @@
                 text-variant="white"
               >
                 <b-card-text>
-                  {{ proyecto.descripcion }}
+                  {{ proyecto.mostrarMas ? proyecto.descripcion : proyecto.descripcion.substring(0, 200) }}
+                  {{ proyecto.descripcion.length > 200 && !proyecto.mostrarMas ? '...' : '' }}
+                  <b-button
+                    v-if="proyecto.descripcion.length > 200"
+                    block
+                    variant="outline"
+                    @click="proyecto.mostrarMas = !proyecto.mostrarMas"
+                  >
+                    <b-icon :icon=" proyecto.mostrarMas ? 'chevron-compact-up' : 'chevron-compact-down'" variant="white" ></b-icon>
+                  </b-button>
                 </b-card-text>
                 <b-button
                   class="mr-2"
@@ -117,7 +126,7 @@
             </div>
           </b-card-group>
         </b-card>
-      </div>
+      </b-container>
       <b-button block variant="outline-info" class="font-weight-bold"
         >Experiencia Obtenida <b-avatar icon="award" variant="info"></b-avatar
       ></b-button>
@@ -228,6 +237,28 @@
               </b-col>
               <b-col></b-col>
             </b-row>
+            <b-row>
+              <b-col></b-col>
+              <b-col
+                ><b-avatar
+                  :src="require('../assets/typescript.png')"
+                  variant="light"
+                  size="8rem"
+                  rounded=""
+                  class="mt-5 t-5"
+                ></b-avatar
+              ></b-col>
+              <b-col>
+                <h4 class="font-weight-bold">2021</h4>
+                Este año he realizado proyectos universitarios, personales y empresariales. Aprovechando que VUE estrenó
+                su versión 3.0, en ella se anunció la compatibilidad total con typescript, ello animó mi curiosidad por
+                aprender el lenguaje, tras ser fuertemente tipado y dotado de funcionalidad que verifica el código en
+                tiempo real este actua por una parte cómo un "testing" con lo cual al conocerlo, siento que volví a
+                descubrir la programación, typescript lo utilicé en un programa en el que participé cómo front-end
+                developer junto a VUE 3, con lo cual estoy seguro que en futuros proyectos volveré a hacer uso de este
+                lenguaje.
+              </b-col>
+            </b-row>
           </b-container>
         </b-card>
       </div>
@@ -237,20 +268,26 @@
       ></b-button>
     </main>
     <footer>
-      <b-conntainer-fluid>
+      <b-container fluid>
         <b-card align="center" bg-variant="dark" text-variant="light">
           <b-card-text>
             <b-row>
               <b-col>
                 <h4 class="font-weight-bold">Contacto</h4>
-                <p>Telegram: 04247750438</p>
+                <p>Telegram: @Angellucianot</p>
                 <p>Mail: ragadurana@uvm.edu.ve</p>
-                <p>GitHub: github.com/lucianoangel</p>
+                  <b-icon
+                    icon="github"
+                    variant="white"
+                  ></b-icon>
+                <span>
+                  github.com/lucianoangel
+                </span>
               </b-col>
               <b-col>
                 <h4 class="font-weight-bold">Herramientas de trabajo</h4>
                 <p>Bitbucket</p>
-                <p>Trello</p>
+                <p>Jira</p>
                 <p>Visual Studio Code</p>
               </b-col>
               <b-col class="mt-5">
@@ -271,15 +308,14 @@
             </b-row>
           </b-card-text>
         </b-card>
-      </b-conntainer-fluid>
+      </b-container>
     </footer>
   </div>
 </template>
 
 <script>
+// Agregar más iconos
 // Agregar carrusel de fotos a las cartas
-// Agregar substring y botón de ver más a las cartas
-// Actualizar info de la experiencia obtenida
 // Agregar panel de hobbies
 // Agregar distintas resoluciones a las fotos para optimizar la web
 export default {
@@ -295,6 +331,7 @@ export default {
           link: require("../assets/proyectos/danhyluc.png"),
           front: "https://github.com/LucianoAngel/danhyluc",
           back: "https://github.com/LucianoAngel/danhyluc-back",
+          mostrarMas: false,
         },
         {
           nombre: "Administrador de una ciudad",
@@ -304,6 +341,7 @@ export default {
           link: require("../assets/proyectos/gestionCiudad.jpg"),
           front: "https://github.com/LucianoAngel/City-management",
           back: "https://github.com/LucianoAngel/City-management-back",
+          mostrarMas: false,
         },
         {
           nombre: "E-Shop",
@@ -313,6 +351,7 @@ export default {
           link: require("../assets/proyectos/shop1.jpg"),
           front: "https://github.com/LucianoAngel/e-shop",
           back: "https://github.com/LucianoAngel/e-shop",
+          mostrarMas: false,
         },
         {
           nombre: "Portafolio Personal",
@@ -321,6 +360,7 @@ export default {
           tecnologias: "VUE, BOOTSTRAP",
           link: require("../assets/proyectos/portafolio.png"),
           redirect: "https://github.com/LucianoAngel/Portafolio-personal",
+          mostrarMas: false,
         },
         {
           nombre: "DAYLUC",
@@ -330,6 +370,7 @@ export default {
           link: require("../assets/proyectos/dayluc.png"),
           front: "https://github.com/LucianoAngel/dayluc/tree/main/front-end",
           back: "https://github.com/LucianoAngel/dayluc/tree/main/back-end",
+          mostrarMas: false,
         },
         {
           nombre: "Reproductor de Música",
@@ -338,6 +379,7 @@ export default {
           tecnologias: "HTML, CSS, JQUERY",
           link: require("../assets/proyectos/musicPlayer.png"),
           redirect: "https://github.com/LucianoAngel/musicPlayer",
+          mostrarMas: false,
         },
         {
           nombre: "JARVIS",
@@ -346,6 +388,7 @@ export default {
           tecnologias: "HTML, CSS, JQUERY",
           link: require("../assets/proyectos/jarvis.png"),
           redirect: "https://github.com/LucianoAngel/jarvis",
+          mostrarMas: false,
         },
         {
           nombre: "Clon NodeJS",
@@ -354,6 +397,7 @@ export default {
           tecnologias: "HTML, CSS",
           link: require("../assets/proyectos/node.png"),
           redirect: "https://github.com/LucianoAngel/node-js-clon",
+          mostrarMas: false,
         },
       ],
     };
