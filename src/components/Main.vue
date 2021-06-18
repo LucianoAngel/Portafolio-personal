@@ -396,11 +396,11 @@ export default {
         {
           nombre: "E-Shop",
           descripcion:
-            'Proyecto personal, cuenta con la funcionalidad de administrar: compras, ventas, ingresos, personal y clientes de un comercio, es una "SPA", cuenta con manejo de sesiones y una landing page',
+            'Proyecto personal, cuenta con la funcionalidad de administrar: compras, ventas, ingresos, historial de venta, inventario y manejo de clientes de un comercio, es una "SPA", cuenta con manejo de sesiones y una landing page',
           tecnologias: "VUE, BOOTSTRAP, EXPRESS, MONGO",
-          link: require("../assets/proyectos/shop1.jpg"),
-          front: "https://github.com/LucianoAngel/e-shop",
-          back: "https://github.com/LucianoAngel/e-shop",
+          link: require("../assets/proyectos/shop1.png"),
+          front: "https://github.com/LucianoAngel/e-shop/tree/main/Front",
+          back: "https://github.com/LucianoAngel/e-shop/tree/main/Back",
           mostrarMas: false,
         },
         {
